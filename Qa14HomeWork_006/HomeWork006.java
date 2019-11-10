@@ -92,7 +92,7 @@ public class HomeWork006 {
             timeHours = scanner.nextByte();
         }
         System.out.println("Введите минуты (число от 0 до 59 включительно): ");
-        Byte timeMinut = scanner.nextByte();
+        byte timeMinut = scanner.nextByte();
         while (timeMinut < 0 || timeMinut > 59) {
             if (timeMinut < 0) {
                 System.out.println("Число не может быть отрицательным. Введите минуты (число от 0 до 59 включительно): ");
@@ -103,7 +103,7 @@ public class HomeWork006 {
             timeMinut = scanner.nextByte();
         }
         System.out.println("Введите секунды (число от 0 до 59 включительно): ");
-        Byte timeSecond = scanner.nextByte();
+        byte timeSecond = scanner.nextByte();
         while (timeSecond < 0 || timeMinut > 59) {
             if (timeSecond < 0) {
                 System.out.println("Число не может быть отрицательным. Введите секунды (число от 0 до 59 включительно): ");
@@ -287,22 +287,12 @@ public class HomeWork006 {
         }
 
         boolean dayInMont30;
-        if (month == 4 || month == 6 || month == 9 || month == 11) {
-            dayInMont30 = true;
-        }
-        else {
-            dayInMont30 = false;
-        }
+        dayInMont30 = month == 4 || month == 6 || month == 9 || month == 11;
         boolean dayInMont31;
-        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-            dayInMont31 = true;
-        }
-        else {
-            dayInMont31 = false;
-        }
+        dayInMont31 = month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12;
         System.out.println("Введите день месяца: ");
         int day = scanner.nextInt();
-        while (day > 31 || day <= 0 || month == 2 && isLeapYear == false && day > 28 || month == 2 && isLeapYear && day >29 || day > 30 && dayInMont30) {
+        while (day > 31 || day <= 0 || month == 2 && !isLeapYear && day > 28 || month == 2 && isLeapYear && day >29 || day > 30 && dayInMont30) {
             if (day <=0) {
                 System.out.println("День месяца не может быть отрицательным числом. Введите день месяца: ");
             } else if (day == 0) {
@@ -316,7 +306,7 @@ public class HomeWork006 {
             else if (month == 2 && isLeapYear && day >29) {
                 System.out.println("В феврале високосного года не может быть больше чем 29 дней. Введите день месяца: ");
             }
-            else if (month == 2 && isLeapYear == false && day > 28) {
+            else if (month == 2 && !isLeapYear && day > 28) {
                 System.out.println("В феврале обычного (не высокосного) года не может быть больше чем 28 дней. Введите день месяца: ");
             }
             day = scanner.nextInt();
@@ -346,10 +336,10 @@ public class HomeWork006 {
             System.out.println("Следующий день: 01.03" + year);
         }
 
-        else if (day <= 27 && month == 2 && isLeapYear == false) {
+        else if (day <= 27 && month == 2 && !isLeapYear) {
             System.out.println("Следующий день: " + (day+1) + "." + month + "." + year);
         }
-        else if (day > 27 && month == 2 && isLeapYear == false) {
+        else if (day > 27 && month == 2 && !isLeapYear) {
             System.out.println("Следующий день: 01.03" + year);
         }
 
@@ -358,8 +348,8 @@ public class HomeWork006 {
         System.out.println("");
         System.out.println("\nДесятое задание");
         String [] arrayZoo = new String [] {"1.Кошка", "2.Собака", "3.Свинья", "4.Петух", "5.Курица", "6.Квочка", "7.Корова", "8.Козел", "9.Воробей", "10.Слон"};
-        for (int i=0; i < arrayZoo.length; i++) {
-            System.out.println(arrayZoo[i]);
+        for (String s2 : arrayZoo) {
+            System.out.println(s2);
         }
         System.out.println("Выберите одно из животных, указав цифру, расположенную с лева от него: ");
         byte numberAnimal = scanner.nextByte();
@@ -407,8 +397,8 @@ public class HomeWork006 {
         int countYesGame = 0;
         int countNotGame = 0;
         String [] arrayAnswer001 = new String [] {"1.муравей", "2.паук", "3.воробей", "4.сверчок"};
-        for (int i=0; i < arrayAnswer001.length; i++) {
-            System.out.println(arrayAnswer001[i]);
+        for (String s1 : arrayAnswer001) {
+            System.out.println(s1);
         }
         System.out.println("Выберите ответ, указав цифру, расположенную с лева от него: ");
         byte arrayAnswer001In = scanner.nextByte();
@@ -428,8 +418,8 @@ public class HomeWork006 {
         }
         System.out.println("Второй вопрос. Чем нужно накормить человека, который болен от любви?");
         String [] arrayAnswer002 = new String [] {"1.яблоками", "2.виноградом", "3.медом", "4.Фиґами"};
-        for (int i=0; i < arrayAnswer002.length; i++) {
-            System.out.println(arrayAnswer002[i]);
+        for (String element : arrayAnswer002) {
+            System.out.println(element);
         }
         System.out.println("Выберите ответ, указав цифру, расположенную с лева от него: ");
         byte arrayAnswer002In = scanner.nextByte();
@@ -449,8 +439,8 @@ public class HomeWork006 {
         }
         System.out.println("Третий вопрос. Как называлась верхняя одежда первосвященника?");
         String [] arrayAnswer003 = new String [] {"1.хитон", "2.ефод", "3.пурпур", "4.туника"};
-        for (int i=0; i < arrayAnswer003.length; i++) {
-            System.out.println(arrayAnswer003[i]);
+        for (String item : arrayAnswer003) {
+            System.out.println(item);
         }
         System.out.println("Выберите ответ, указав цифру, расположенную с лева от него: ");
         byte arrayAnswer003In = scanner.nextByte();
@@ -475,8 +465,8 @@ public class HomeWork006 {
         }
         System.out.println("Четвертый вопрос. Какое значение слова \"Нехуштан\"?");
         String [] arrayAnswer004 = new String [] {"1.жалящий змей", "2.зеленый змей", "3.спасающий змей", "4.медный змей"};
-        for (int i=0; i < arrayAnswer004.length; i++) {
-            System.out.println(arrayAnswer004[i]);
+        for (String value : arrayAnswer004) {
+            System.out.println(value);
         }
         System.out.println("Выберите ответ, указав цифру, расположенную с лева от него: ");
         byte arrayAnswer004In = scanner.nextByte();
@@ -501,8 +491,8 @@ public class HomeWork006 {
         }
         System.out.println("Пятый вопрос. С чем сравнивается язык мудрецов??");
         String [] arrayAnswer005 = new String [] {"1.с маслом", "2.с вином", "3.с лекарствами", "4.с медом"};
-        for (int i=0; i < arrayAnswer005.length; i++) {
-            System.out.println(arrayAnswer005[i]);
+        for (String s : arrayAnswer005) {
+            System.out.println(s);
         }
         System.out.println("Выберите ответ, указав цифру, расположенную с лева от него: ");
         byte arrayAnswer005In = scanner.nextByte();
@@ -561,17 +551,17 @@ public class HomeWork006 {
             birthMonth = scanner.nextInt();
         }
         if ((birthMonth==1 &&  birthDate <= 20) || (birthMonth==12 &&  birthDate >= 22)) {
-                System.out.println("По знаку зодиака вы Козерог");
-                System.out.println("Гороскоп на неделю 21 – 27 октября 2019 для Козерога\n" +
-                        "\n" +
-                        "Козерогам на этой неделе надо обратить внимание на питание. Старайтесь меньше употреблять сладкой и жирной пищи. Впрочем, вся новая неделя будет благоприятной для внутренней работы и самосовершенствования. Избавьтесь от сомнений, не позволяйте себе переживать из-за событий, которые от вас не зависят.\n" +
-                        "\n" +
-                        "В начале недели вы почувствуете прилив бодрости, который положительно скажется на вашей работоспособности. Этот день благоприятен для занятий спортом или прогулок на свежем воздухе. Приятные эмоции принесут покупки, встречи со старыми друзьями и домашние хлопоты. С финансами у Козерогов на этой неделе проблем не будет.\n" +
-                        "\n" +
-                        "В конце недели умерьте свой пыл и амбиции, а свободное время проведите в одиночестве: почитайте, послушайте любимую музыку. В субботу не спешите принимать серьезные решения в личной сфере.\n" +
-                        "\n" +
-                        "Благоприятный день: 26 октября\n" +
-                        "Неблагоприятный день: 27 октября");
+            System.out.println("По знаку зодиака вы Козерог");
+            System.out.println("Гороскоп на неделю 21 – 27 октября 2019 для Козерога\n" +
+                    "\n" +
+                    "Козерогам на этой неделе надо обратить внимание на питание. Старайтесь меньше употреблять сладкой и жирной пищи. Впрочем, вся новая неделя будет благоприятной для внутренней работы и самосовершенствования. Избавьтесь от сомнений, не позволяйте себе переживать из-за событий, которые от вас не зависят.\n" +
+                    "\n" +
+                    "В начале недели вы почувствуете прилив бодрости, который положительно скажется на вашей работоспособности. Этот день благоприятен для занятий спортом или прогулок на свежем воздухе. Приятные эмоции принесут покупки, встречи со старыми друзьями и домашние хлопоты. С финансами у Козерогов на этой неделе проблем не будет.\n" +
+                    "\n" +
+                    "В конце недели умерьте свой пыл и амбиции, а свободное время проведите в одиночестве: почитайте, послушайте любимую музыку. В субботу не спешите принимать серьезные решения в личной сфере.\n" +
+                    "\n" +
+                    "Благоприятный день: 26 октября\n" +
+                    "Неблагоприятный день: 27 октября");
         }
         else if ((birthMonth==1 &&  birthDate >= 21) || (birthMonth==2 &&  birthDate <= 18)) {
             System.out.println("По знаку зодиака вы Водолей");
@@ -582,7 +572,7 @@ public class HomeWork006 {
                     "Благоприятный день: 23 октября \n" +
                     "Неблагоприятный день: 24 октября");
         }
-            else if ((birthMonth==2 &&  birthDate >= 19) || (birthMonth==3 &&  birthDate <= 20)) {
+        else if ((birthMonth==2 &&  birthDate >= 19) || (birthMonth==3 &&  birthDate <= 20)) {
             System.out.println("По знаку зодиака вы Рыбы");
             System.out.println("Гороскоп на неделю 21 – 27 октября 2019 для Рыб\n" +
                     "\n" +
