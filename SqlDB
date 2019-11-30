@@ -1,0 +1,85 @@
+/*
+USE [master]
+GO
+
+CREATE DATABASE [Products]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Products', FILENAME = N'C:\SQL\Products.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Products_log', FILENAME = N'C:\SQL\Products_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+
+USE [Products]
+GO
+*/
+
+CREATE TABLE [dbo].[Product](
+	[id] [int] NOT NULL,
+	[name] [varchar](50) NOT NULL,
+	[category] [varchar](50) NOT NULL,
+	[price] [float] NOT NULL,
+	[discount] [tinyint] NOT NULL,
+	[quantity] [int] NOT NULL,
+	[measurement] [nchar](20) NOT NULL,
+	[producer] [varchar](50) NOT NULL,
+	[country] [varchar](50) NOT NULL,
+	[supplier] [varchar](50) NOT NULL,
+	[date_of_delivery] [date] NOT NULL,
+	[expire_date] [date] NOT NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (1, N'Яблоки', N'Фрукты', 26.4600, 3, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Черепаха', CAST(N'2018-05-21' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (5, N'Персики', N'Фрукты', 64.2550, 7, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (6, N'Абрикосы', N'Фрукты', 67.4850, 6, 25, N'кг                  ', N'ООО Сад', N'Молдова', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (7, N'Черешня', N'Фрукты', 36.3825, 9, 25, N'кг                  ', N'ООО Сад', N'Беларусь', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (8, N'Клубника', N'Фрукты', 46.3050, 11, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (9, N'Малина', N'Фрукты', 76.2275, 12, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (10, N'Киви', N'Фрукты', 52.9200, 6, 25, N'кг                  ', N'ООО Сад', N'Молдова', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (11, N'Крыжовник', N'Фрукты', 56.2275, 14, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (12, N'Айва', N'Фрукты', 26.4600, 6, 25, N'кг                  ', N'ООО Сад', N'Беларусь', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (14, N'Ананас', N'Фрукты', 90.7925, 12, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (15, N'Бананы', N'Фрукты', 29.8175, 10, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (16, N'Гранат', N'Фрукты', 96.2275, 2, 25, N'кг                  ', N'ООО Сад', N'Молдова', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (17, N'Дыня', N'Фрукты', 38.5875, 6, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (21, N'Мандарины', N'Фрукты', 39.6900, 8, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (22, N'Маракуйя', N'Фрукты', 150.7150, 2, 25, N'кг                  ', N'ООО Сад', N'Беларусь', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (23, N'Фейхоа', N'Фрукты', 230.7150, 3, 25, N'кг                  ', N'ООО Сад', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (25, N'Картофель', N'Овощи', 11.0250, 6, 25, N'кг                  ', N'ООО Огород', N'Молдова', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (26, N'Огурцы', N'Овощи', 14.3325, 8, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (27, N'Помидоры', N'Овощи', 50.7150, 9, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (28, N'Артишок', N'Овощи', 27.5625, 16, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (29, N'Брокколи', N'Овощи', 99.8700, 19, 25, N'кг                  ', N'ООО Огород', N'Молдова', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (30, N'Баклажан', N'Овощи', 39.6900, 18, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (31, N'Кабачок', N'Овощи', 8.8200, 11, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (32, N'Каперсы', N'Овощи', 9.9225, 17, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (33, N'Кольраби', N'Овощи', 11.0250, 16, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (34, N'Маслины', N'Овощи', 44.3325, 13, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (35, N'Лук', N'Овощи', 12.6400, 7, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (36, N'Оливки', N'Овощи', 67.6400, 22, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (37, N'Патиссон', N'Овощи', 29.7675, 23, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (39, N'Редька горькая', N'Овощи', 39.6900, 56, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (40, N'Репа', N'Овощи', 62.8425, 4, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (41, N'Руккола', N'Овощи', 38.5875, 1, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (42, N'Свекла', N'Овощи', 6.4600, 3, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (43, N'Топинамбур', N'Овощи', 48.5100, 3, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (46, N'Перец сладкий', N'Овощи', 12.4600, 7, 25, N'кг                  ', N'ООО Огород', N'Украина', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (47, N'Капуста', N'Овощи', 14.3325, 6, 25, N'кг                  ', N'ООО Огород', N'Молдова', N'Улитка', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (48, N'Капуста цветная', N'Овощи', 26.4600, 5, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (49, N'Каперсы деш.', N'Овощи', 3.5875, 4, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (50, N'Брюква', N'Овощи', 50.7150, 3, 25, N'кг                  ', N'ООО Огород', N'Беларусь', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (51, N'Хлеб', N'Хлебобулочные изделия', 8.8200, 3, 22, N'кг                  ', N'ООО Пекарь', N'Украина', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+INSERT [dbo].[Product] ([id], [name], [category], [price], [discount], [quantity], [measurement], [producer], [country], [supplier], [date_of_delivery], [expire_date]) VALUES (52, N'Молоко', N'Молочные изделия', 16.2550, 4, 33, N'литр                ', N'ООО Молочник', N'Молдова', N'Черепаха', CAST(N'2018-03-13' AS Date), CAST(N'2018-09-21' AS Date))
+ALTER TABLE [dbo].[Product]  WITH CHECK ADD  CONSTRAINT [CK_Products] CHECK  (([quantity]>(0) AND [discount]>(0) AND [discount]<=(100)))
+GO
+ALTER TABLE [dbo].[Product] CHECK CONSTRAINT [CK_Products]
+GO
+USE [master]
+GO
+ALTER DATABASE [Products] SET  READ_WRITE 
+GO
